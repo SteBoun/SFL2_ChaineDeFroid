@@ -1,0 +1,4 @@
+L'entreprise proxidej fait de la livraison de plat à domicile. Cette livraison se fait avec 3 véhicule avec un système de refroidissement des aliments. Elle délivre ses aliments 
+dans les communes du Sud Loire dans un rayon de 30km autour de Vallet.
+Néanmoins, cette société ne peut pas prouver que ses aliments ont respectés la température minimale pour leurs conservations. Elle nous demande de créer un système pour le justifier. 
+Notre projet consistera à trouver un moyen de justifier la chaîne du froid pour un seul des véhicules.
