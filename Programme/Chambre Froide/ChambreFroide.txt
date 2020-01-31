@@ -1,0 +1,31 @@
+#------------------ Librairies ----------------------------------------------
+
+import mysql.connector as mariadb
+import time
+
+#------------------ Variables ----------------------------------------------
+
+temperature = 0
+
+#------------------ Connexion -----------------------------------------------
+
+Connexion = mariadb.connect(
+  host='localhost',
+  user='root',
+  password='',
+  database='proxydej'
+)
+
+cursor = Connexion.cursor()
+
+#------------------ GPIO (capteur température) ------------------------------
+
+
+
+#------------------ Code ------------------------------
+
+while True: # Boucle infini jusqu'a arret du programme
+
+  cursor.execute("INSERT INTO chambrefroide (temp) VALUES (%s)",str(temperature))
+
+  time.sleep(5) # On attends 5 secondes avant la prochaine mesure
