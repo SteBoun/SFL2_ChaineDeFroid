@@ -10,13 +10,24 @@ Raspberry PI3B+ brief (anglais) : https://static.raspberrypi.org/files/product-b
 Chaine du froid Gouvernement : https://www.economie.gouv.fr/dgccrf/Publications/Vie-pratique/Fiches-pratiques/Chaine-du-froid
 Alternative google map API : https://nordicapis.com/5-powerful-alternatives-to-google-maps-api/
 Raspberry tuto gps : https://raspberry-pi.developpez.com/cours-tutoriels/projets-rpi-zero/traceur-gps/
-
+GPS : https://www.drgoulu.com/2008/09/27/le-gps-pour-les-nuls-satellites-et-signaux/
 Régulateur 5V/12V : https://shop.mchobby.be/fr/regulateurs/742-regulateur-dc-dc-36v-vers-5v12v-step-down--3232100007420-olimex.html
 Symphony (anglais): https://symfony.com/
 sonde de température : https://www.robotshop.com/eu/fr/capteur-numrique-temprature-et-dhumidit-avec-sonde-en-acier-inoxydable.html
+GPS : https://ent2d.ac-bordeaux.fr/disciplines/sciences-physiques/wp-content/uploads/sites/7/2018/10/physique_computationnelle.pdf
+https://ozzmaker.com/using-python-with-a-gps-receiver-on-a-raspberry-pi/
+https://github.com/psas/gps
+https://www.developpez.net/forums/d1500987/autres-langages/python/general-python/tracker-gps-python/
+https://www.rs-online.com/designspark/add-gps-time-and-location-to-a-raspberry-pi-project-fr
+https://www.reichelt.com/fr/fr/arduino-grove-gps-sim28-grv-gps-p191289.html
+https://perso.esiee.fr/~courivad/Python1/15-geo.html
+https://www.freecodecamp.org/forum/t/make-a-script-read-gps-geolocation/241607/2
+https://www.youtube.com/watch?v=VZ2ushI4D0Y
+https://lecluseo.scenari-community.org/CircuitPython/co/g_GPS.html
 Matthew : 
 
 https://espace-raspberry-francais.fr/Composants/Sonde-de-temperature-DS18B20-sur-Raspberry-Francais/
 https://bigl.es/ds18b20-temperature-sensor-with-python-raspberry-pi/
 https://www.framboise314.fr/mesure-de-temperature-1-wire-ds18b20-avec-le-raspberry-pi/
 https://stackoverflow.com/questions/9744775/how-to-convert-integer-timestamp-to-python-datetime
+http://socialcompare.com/fr/comparison/raspberrypi-models-comparison
