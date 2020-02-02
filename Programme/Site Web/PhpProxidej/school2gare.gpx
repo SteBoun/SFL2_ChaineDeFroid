@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="EditGPX">
+  <trk>
+    <trkseg>
+      <trkpt lat="47.230250" lon="-1.563378">
+        <ele>22.1</ele>
+      </trkpt>
+      <trkpt lat="47.231851" lon="-1.561752">
+        <ele>26.8</ele>
+      </trkpt>
+      <trkpt lat="47.231630" lon="-1.558597">
+        <ele>28.1</ele>
+      </trkpt>
+      <trkpt lat="47.230349" lon="-1.558548">
+        <ele>26.8</ele>
+      </trkpt>
+      <trkpt lat="47.230824" lon="-1.556678">
+        <ele>28</ele>
+      </trkpt>
+      <trkpt lat="47.227611" lon="-1.551848">
+        <ele>11.2</ele>
+      </trkpt>
+      <trkpt lat="47.227092" lon="-1.553100">
+        <ele>9.8</ele>
+      </trkpt>
+      <trkpt lat="47.226440" lon="-1.553312">
+        <ele>12.7</ele>
+      </trkpt>
+      <trkpt lat="47.224806" lon="-1.552873">
+        <ele>9.2</ele>
+      </trkpt>
+      <trkpt lat="47.223005" lon="-1.552466">
+        <ele>8.6</ele>
+      </trkpt>
+      <trkpt lat="47.221382" lon="-1.550938">
+        <ele>17.9</ele>
+      </trkpt>
+      <trkpt lat="47.218466" lon="-1.548515">
+        <ele>23.6</ele>
+      </trkpt>
+      <trkpt lat="47.219979" lon="-1.544937">
+        <ele>19.4</ele>
+      </trkpt>
+      <trkpt lat="47.220112" lon="-1.544725">
+        <ele>19.5</ele>
+      </trkpt>
+      <trkpt lat="47.218775" lon="-1.543555">
+        <ele>12.8</ele>
+      </trkpt>
+      <trkpt lat="47.218621" lon="-1.542416">
+        <ele>12</ele>
+      </trkpt>
+      <trkpt lat="47.218345" lon="-1.541977">
+        <ele>12.3</ele>
+      </trkpt>
+      <trkpt lat="47.218002" lon="-1.541750">
+        <ele>12.4</ele>
+      </trkpt>
+      <trkpt lat="47.217560" lon="-1.541863">
+        <ele>12.4</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
