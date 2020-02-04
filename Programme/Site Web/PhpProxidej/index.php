@@ -1,102 +1,74 @@
 <html>
+    <?php session_start(); ?>
+    <!DOCTYPE HTML>
+    <html>
+        <head>
+            <title>ProxiDej</title>
+            <script src="OpenLayers.js"></script>
+            <!-- bring in the OpenStreetMap OpenLayers layers.
+                     Using this hosted file will make sure we are kept up
+                     to date with any necessary changes -->
+            <script src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+        </head>
+        <body class="is-preload" onload="init();">
 
-    <head>
-        <style>
-            .divA{
-                background-color:#ff0000;
-                width:200px;
-            }</style>
-        <!-- Source: http://wiki.openstreetmap.org/wiki/Openlayers_Track_example -->
-        <title>Simple OSM GPX Track</title>
-        <!-- bring in the OpenLayers javascript library
-                 (here we bring it from the remote site, but you could
-                 easily serve up this javascript yourself) -->
-        <script src="OpenLayers.js"></script>
-        <!-- bring in the OpenStreetMap OpenLayers layers.
-                 Using this hosted file will make sure we are kept up
-                 to date with any necessary changes -->
-        <script src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+            <!-- Wrapper -->
+            <div id="wrapper">
 
-        <script type="text/javascript">
-            // Start position for the map (hardcoded here for simplicity,
-            // but maybe you want to get this from the URL params)
-            var lat = 47.230250
-            var lon = -1.563378
-            var zoom = 11
+                <!-- Main -->
+                <div id="main">
+                    <div class="inner">
 
-            var latPro = 47.132130
-            var lonPro = -1.352790
+                        <?php include 'include/header.inc.php'; ?>
 
-            var map; //complex object of type OpenLayers.Map
+                        <!-- Banner -->
+                        <section id="banner">
+                            <div class="content">
+                                <header>
+                                    <h1>Acceuil</h1>
+                                    <p>A free and fully responsive site template</p>
+                                </header>
+                                <p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
+                                <ul class="actions">
+                                    <li><a href="#" class="button big">Learn More</a></li>
+                                </ul>
+                            </div>
+                            <span class="image object">
+                                <img src="images/pic10.jpg" alt="" />
+                            </span>
+                        </section>
 
-            function init() {
-                //  document.getElementById('olControlLayerSwitcher .layersDiv').className = 'divA';
-                        map = new OpenLayers.Map("map", {
-                            controls: [
-                                new OpenLayers.Control.Navigation(),
-                                new OpenLayers.Control.PanZoomBar(),
-                                new OpenLayers.Control.LayerSwitcher(),
-                                new OpenLayers.Control.Attribution()],
-                            maxExtent: new OpenLayers.Bounds(-20037508.34, -20037508.34, 20037508.34, 20037508.34),
-                            maxResolution: 156543.0399,
-                            numZoomLevels: 19,
-                            units: 'm',
-                            projection: new OpenLayers.Projection("EPSG:900913"),
-                            displayProjection: new OpenLayers.Projection("EPSG:4326")
-                        });
+                        <!-- Section -->
+                        <section>
+   
+                        </section>
 
-                // Define the map layer
-                // Here we use a predefined layer that will be kept up to date with URL changes
-                layerMapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik");
-                map.addLayer(layerMapnik);
-                //layerCycleMap = new OpenLayers.Layer.OSM.CycleMap("CycleMap");
-                //map.addLayer(layerCycleMap);
-                layerMarkers = new OpenLayers.Layer.Markers("Points");
-                map.addLayer(layerMarkers);
+                        <!-- Section -->
+                        <section>
 
-                // Add the Layer with the GPX Track
-                var lgpx = new OpenLayers.Layer.Vector("Véhicule 1", {
-                    strategies: [new OpenLayers.Strategy.Fixed()],
-                    protocol: new OpenLayers.Protocol.HTTP({
-                        url: "proxi2school.gpx",
-                        format: new OpenLayers.Format.GPX()
-                    }),
-                    style: {strokeColor: "#fbb021", strokeWidth: 5, strokeOpacity: 1},
-                    projection: new OpenLayers.Projection("EPSG:4326")
-                });
-                var lgpx1 = new OpenLayers.Layer.Vector("Véhicule 2", {
-                    strategies: [new OpenLayers.Strategy.Fixed()],
-                    protocol: new OpenLayers.Protocol.HTTP({
-                        url: "school2gare.gpx",
-                        format: new OpenLayers.Format.GPX()
-                    }),
-                    style: {strokeColor: "#fbb021", strokeWidth: 5, strokeOpacity: 1},
-                    projection: new OpenLayers.Projection("EPSG:4326")
-                });
+                        </section>
 
-                map.addLayer(lgpx);
-                map.addLayer(lgpx1);
+                    </div>
+                </div>
+                <!--Footer-->
 
-                var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
-                map.setCenter(lonLat, zoom);
-                var lonLatPro = new OpenLayers.LonLat(lonPro, latPro).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
-                map.setCenter(lonLat, zoom);
-                var size = new OpenLayers.Size(21, 25);
-                var sizePro = new OpenLayers.Size(20, 33);
-                var offset = new OpenLayers.Pixel(-(size.w / 2), -size.h);
-                var icon = new OpenLayers.Icon('http://www.openstreetmap.org/openlayers/img/marker.png', size, offset);
-                var iconProxidej = new OpenLayers.Icon('Images/gps_proxidej.png', sizePro, offset);
-                layerMarkers.addMarker(new OpenLayers.Marker(lonLat, icon));
-                layerMarkers.addMarker(new OpenLayers.Marker(lonLatPro, iconProxidej));
+                <!-- Sidebar -->
+                <?php
+                include 'include/slider.inc.php';
+                include 'include/footer.inc.php';
+                ?>
 
 
-            }
-        </script>
+
+
+
+
+
+
+
+        
 
     </head>
     <!-- body.onload is called once the page is loaded (call the 'init' function) -->
-    <body onload="init();">
-        <!-- define a DIV into which the map will appear. Make it take up the whole window -->
-        <div style="width:100%; height:90%" id="map"></div>
-    </body>
+
 </html>

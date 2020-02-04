@@ -12,24 +12,38 @@
         </head>
         <body class="is-preload" onload="init();">
 
+            <!-- Wrapper -->
+            <div id="wrapper">
 
                 <!-- Main -->
                 <div id="main">
+                    <div class="inner">
 
+                        <?php include 'include/header.inc.php'; ?>
 
-
-
+                        <!-- Banner -->
+                        <section id="banner">
+                            <div class="content">
+                                <header>
+                                    <h1>Suivie de Livraison</h1>
+                                    <p>A free and fully responsive site template</p>
+                                </header>
 <div style="width:100%; height:100%" id="map"></div>
-
+                        </section>
+                          <section>
          
 </section>
                         <!-- Section -->
 
                     </div>
-
-        </body>
+                </div>
                 <!--Footer-->
 
+                <!-- Sidebar -->
+                <?php
+                include 'include/slider.inc.php';
+                include 'include/footer.inc.php';
+                ?>
 
 
 
