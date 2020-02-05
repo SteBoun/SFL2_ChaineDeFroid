@@ -6,10 +6,10 @@ include 'include/connection.inc';
 if (isset($_GET['action']) && $_GET['action'] = 'login' && !empty($_POST)) {
     $login = $_POST['login'];
     $password = $_POST['password'];
-
-    $resultat = $connexion->query('SELECT * FROM `users` WHERE `login`='.$login.' AND `password`='.$password.'');
-    
-    $resultat->exectute();
+    $sql = "SELECT * FROM `users` WHERE `login` = '".$login."' AND `mdp`='".$password."'";
+    echo $sql;
+    $resultat = $connexion->query($sql);
+    $resultat->setFetchMode(PDO::FETCH_OBJ);
     $user = $resultat->fetch();
     if ($user) {
         $_SESSION['errCode'] = 0;
