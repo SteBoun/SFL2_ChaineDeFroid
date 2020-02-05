@@ -19,7 +19,7 @@ if (isset($_GET['action']) && $_GET['action'] = 'login' && !empty($_POST)) {
         header('location:index.php');
     } else {
         $_SESSION['errCode'] = 2;
-        header('location:login.php');
+        header('location:connexion.php');
     }
 }
 ?>
@@ -49,7 +49,7 @@ if (isset($_GET['action']) && $_GET['action'] = 'login' && !empty($_POST)) {
                                 <fieldset>
 
                                     <!-- Form Name -->
-                                    <center><legend class="col-md-12 control-label">Connexion</legend>
+                                    <center><h1><legend class="col-md-12 control-label">Connexion</legend></h1>
                                     </center>
                                     <!-- Text input-->
                                     <div class="form-group">

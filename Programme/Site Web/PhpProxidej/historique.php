@@ -1,5 +1,11 @@
 <html>
-    <?php session_start(); ?>
+    <?php
+    session_start();
+    if (!isset($_SESSION['role']) || $_SESSION['role'] != "admin") {
+        $_SESSION['errCode'] = 1;
+        header('location:connexion.php');
+    }
+    ?>?>
     <!DOCTYPE HTML>
     <html>
         <head>
@@ -19,7 +25,7 @@
                 <div id="main">
                     <div class="inner">
 
-                        <?php include 'include/header.inc.php'; ?>
+<?php include 'include/header.inc.php'; ?>
 
                         <!-- Banner -->
                         <section id="banner">
@@ -40,7 +46,7 @@
 
                         <!-- Section -->
                         <section>
-   
+
                         </section>
 
                         <!-- Section -->
@@ -66,9 +72,9 @@
 
 
 
-        
 
-    </head>
-    <!-- body.onload is called once the page is loaded (call the 'init' function) -->
+
+            </head>
+            <!-- body.onload is called once the page is loaded (call the 'init' function) -->
 
 </html>

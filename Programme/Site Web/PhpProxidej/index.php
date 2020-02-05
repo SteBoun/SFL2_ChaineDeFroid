@@ -8,7 +8,7 @@
             <!-- bring in the OpenStreetMap OpenLayers layers.
                      Using this hosted file will make sure we are kept up
                      to date with any necessary changes -->
-            <script src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+            <script src="OpenStreetMap.js"></script>
         </head>
         <body class="is-preload" onload="init();">
 
@@ -34,7 +34,7 @@
                                 </ul>
                             </div>
                             <span class="image object">
-                                <img src="images/pic10.jpg" alt="" />
+                                <img src="img/proxidej-logo.png" alt="" />
                             </span>
                         </section>
 
