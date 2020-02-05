@@ -74,6 +74,10 @@ if (isset($_GET['action']) && $_GET['action'] = 'login' && !empty($_POST)) {
                                             <center><button id="singlebutton" type="submit" name="connexion" class="btn btn-primary">Se connecter</button></center>
                                         </div>
                                     </div>
+                                    </div>
+                        </div>
+                </div>
+            </div>
 
                                 </fieldset>
                             </form>

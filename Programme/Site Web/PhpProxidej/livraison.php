@@ -1,4 +1,4 @@
-<html>
+
     <?php
     session_start();
     if (!isset($_SESSION['role']) || $_SESSION['role'] != "admin") {
@@ -11,9 +11,6 @@
         <head>
             <title>ProxiDej</title>
             <script src="OpenLayers.js"></script>
-            <!-- bring in the OpenStreetMap OpenLayers layers.
-                     Using this hosted file will make sure we are kept up
-                     to date with any necessary changes -->
             <script src="OpenStreetMap.js"></script>
         </head>
         <body class="is-preload" onload="init();">
@@ -34,14 +31,15 @@
                                     <h1>Suivie de Livraison</h1>
                                     <p>A free and fully responsive site template</p>
                                 </header>
-                                <div style="width:100%; height:500px" id="map"></div></div>
+                                <div style="width:100%; height:500%" id="map"></div>
+                            </div>
                         </section>
 
                         <!-- Section -->
 
                     </div>
                 </div>
-                
+
                 <!--Footer-->
 
                 <!-- Sidebar -->

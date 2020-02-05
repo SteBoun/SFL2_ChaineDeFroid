@@ -4,7 +4,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != "admin") {
     $_SESSION['errCode'] = 1;
     header('location:connexion.php');
 }
-?>?>
+?>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -47,6 +47,8 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != "admin") {
 
                 </div>
             </div>
+        
+    
             <!--Footer-->
 
             <!-- Sidebar -->

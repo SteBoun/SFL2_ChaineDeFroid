@@ -23,8 +23,31 @@
 
          
 </section>
-                        <!-- Section -->
+<!-- Form Name -->
+<legend>Form Name</legend>
 
+<!-- Multiple Radios (inline) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="radios">Inline Radios</label>
+  <div class="col-md-4"> 
+    <label class="radio-inline" for="radios-0">
+      <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+      1
+    </label> 
+    <label class="radio-inline" for="radios-1">
+      <input type="radio" name="radios" id="radios-1" value="2">
+      2
+    </label> 
+    <label class="radio-inline" for="radios-2">
+      <input type="radio" name="radios" id="radios-2" value="3">
+      3
+    </label> 
+    <label class="radio-inline" for="radios-3">
+      <input type="radio" name="radios" id="radios-3" value="4">
+      4
+    </label>
+  </div>
+</div>
                     </div>
 
         </body>

@@ -8,18 +8,17 @@
         </span></a>
     <ul class="icons">
         <?php
-        if(isset($_SESSION['prenom']) && isset($_SESSION['nom']) && isset($_SESSION['role'])){
-        
-             echo '<li><a ><span class="label">'.$_SESSION['nom']." ".$_SESSION['prenom'].'</span></a></li>';
-             echo '<li><a href="deconnexion.php" ><span class="label">Déconnexion</span></a></li>';
-        }
-        else{
-           echo '<li><a href="connexion.php" ><span class="label">Connexion</span></a></li>'; 
-        }
+        if (isset($_SESSION['prenom']) && isset($_SESSION['nom']) && isset($_SESSION['role'])) {
 
-        
-        
-                ?>
+            echo '<li class="active"><a ><span class="label">' . $_SESSION['nom'] . " " . $_SESSION['prenom'] . '</span></a></li>';
+            echo '<li class="active"><a href="deconnexion.php" ><span class="label">Déconnexion</span></a></li>';
+        } else {
+            $uri = $_SERVER['REQUEST_URI'];
+            if ($uri != "/PhpProxidej/connexion.php") {
+                echo '<li class="active"><a href="connexion.php" ><span class="label">Connexion</span></a></li>';
+            }
+        }
+        ?>
 <!--										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
             <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
             <li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
