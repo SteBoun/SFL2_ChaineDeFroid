@@ -8,9 +8,12 @@ db = mysql.connector.connect(
                      database="proxidej")        # name of the data base
 
 cur = db.cursor()
-
-sql = "INSERT INTO livraison (temp, posX, posY, id) VALUES (%d, %d, %d, %d)"
-val = ("Mettre_la_temperature", "Mettre_la_longitude", "Mettre_la_lantitude", "Mettre_id_voiture")
+temp = 3.5
+long = 25.4502
+lat = 15.4520
+id_car = 1
+sql = "INSERT INTO livraison (temp, posX, posY, id) VALUES (%f, %lf, %lf, %d)"
+val = (temp, long, lat, id_car)
 cur.execute(sql, val)
 db.commit()
 
