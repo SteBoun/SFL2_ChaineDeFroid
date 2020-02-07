@@ -46,7 +46,7 @@ if (isset($_GET['action']) && $_GET['action'] = 'login' && !empty($_POST)) {
                     <section id="banner">
                         <div class="content">
                             <form action="connexion.php?action=login" method="post" class="form-horizontal">
-                                <fieldset>
+                   <fieldset>
 
                                     <!-- Form Name -->
                                     <center><h1><legend class="col-md-12 control-label">Connexion</legend></h1>
@@ -74,10 +74,11 @@ if (isset($_GET['action']) && $_GET['action'] = 'login' && !empty($_POST)) {
                                             <center><button id="singlebutton" type="submit" name="connexion" class="btn btn-primary">Se connecter</button></center>
                                         </div>
                                     </div>
+                                    </fieldset>
+                        </form>            
                                     </div>
                         </div>
                 </div>
             </div>
 
-                                </fieldset>
-                            </form>
+                             
