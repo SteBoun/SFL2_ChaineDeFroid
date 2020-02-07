@@ -19,15 +19,17 @@ enable_save_to_file = 0
 ser = serial.Serial('/dev/ttyAMA0', 9600, timeout=0)  # Open the serial port at 9600 baud
 ser.flush()
 
-#TEST CONNECTION
+
+# TEST CONNECTION
 def internet_on():
     try:
-        urllib2.urlopen('http://216.58.192.142', timeout=1)
+        urllib2.urlopen('http://www.google.com', timeout=1)
         return True
     except urllib2.URLError as err:
         return False
 
-if internet_on() == true:
+
+if internet_on():
 
     def cleanstr(in_str):
         out_str = "".join([c for c in in_str if c in "0123456789.-"])
@@ -66,7 +68,7 @@ if internet_on() == true:
             GPS.GGA = GPS.inp.split(",")  # Split the stream into individual parts
             return [GPS.GGA]
 
-    # Split the data into individual elements
+        # Split the data into individual elements
         def vals(self):
             if enable_debug:
                 print(GPS.GGA)
@@ -104,7 +106,7 @@ if internet_on() == true:
                 alt = str(GPS.GGA[9])
             return [time, fix, sats, alt, lat, lat_ns, long, long_ew]
 
-    # Convert to decimal degrees
+        # Convert to decimal degrees
         def decimal_degrees(self, raw_degrees):
             try:
                 degrees = float(raw_degrees) // 100
@@ -137,7 +139,7 @@ if internet_on() == true:
                     if long_ew == "W":
                         longitude = -longitude
 
-            # print ("Time:",t,"Fix status:",fix,"Sats in view:",sats,"Altitude",alt,"Lat:",lat,lat_ns,"Long:",long,long_ew)
+                # print ("Time:",t,"Fix status:",fix,"Sats in view:",sats,"Altitude",alt,"Lat:",lat,lat_ns,"Long:",long,long_ew)
                 try:
                     print(
                         "Time\t\t: %s\nFix status\t: %d\nSats in view\t: %d\nAltitude\t: %s\nLat\t\t: %f\nLong\t\t: %f") % (
