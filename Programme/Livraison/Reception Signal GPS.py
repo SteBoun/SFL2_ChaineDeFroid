@@ -186,4 +186,4 @@ if internet_on() == True:
         val = (m_temp, m_long, m_lat, id_car)
         cur.execute(sql, val)
         db.commit()
-        time.sleep(5)
+        time.sleep(3)
