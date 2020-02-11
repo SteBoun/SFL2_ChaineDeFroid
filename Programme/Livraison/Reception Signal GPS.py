@@ -1,4 +1,5 @@
 #!/usr/bin/python
+from time import sleep
 import serial, time
 import smbus
 import math
@@ -7,6 +8,7 @@ import struct
 import sys
 import urllib2
 import mysql.connector
+from pi_sht1x import SHT1x
 # import ir_receiver_check
 
 enable_debug = 1
@@ -24,7 +26,12 @@ m_lat = 0
 m_long = 0
 m_temp = 0
 
+DATA_PIN = 21
+SCK_PIN = 23
 
+with SHT1x(DATA_PIN, SCK_PIN, gpio_mode=GPIO.BOARD) as sensor:
+    m_temp = sensor.read_temperature()
+    sleep(2)
 
 
 def cleanstr(in_str):
@@ -116,7 +123,7 @@ if __name__ == "__main__":
     g = GPS()
     if enable_save_to_file:
         f = open("gps_data.csv", 'w')  # Open file to log the data
-        f.write("name,latitude,longitude\n")  # Write the header to the top of the file
+        f.write("name,latitude,longitude,temperature\n")  # Write the header to the top of the file
     ind = 0
     while True:
         time.sleep(0.01)
@@ -145,7 +152,7 @@ if __name__ == "__main__":
                     "Time\t\t: %s\nFix status\t: %s\nSats in view\t: %s\nAltitude\t: %s\nLat\t\t: %s\nLong\t\t: %s") % (
                     t, str(fix), str(sats), str(alt), str(m_lat), str(m_long))
 
-            s = str(t) + "," + str(safefloat(m_lat) / 100) + "," + str(safefloat(m_long) / 100) + "\n"
+            s = str(t) + "," + str(safefloat(m_lat) / 100) + "," + str(safefloat(m_long) / 100) + "," + str(safefloat(m_temp) / 100) + "\n"
 
             if enable_save_to_file:
                 f.write(s)  # Save to file
@@ -172,9 +179,8 @@ if internet_on() == True:
         password="Motdepasse",  # your password
         host="127.0.0.1",  # your host, usually localhost
         database="proxidej")  # name of the data base
+    cur = db.cursor()
     while True:  # Boucle infini jusqu'a arret du programme
-        cur = db.cursor()
-        m_temp = 3.5
         id_car = 1
         sql = "INSERT INTO livraison (temp, posX, posY, id) VALUES (%f, %lf, %lf, %d)"
         val = (m_temp, m_long, m_lat, id_car)
