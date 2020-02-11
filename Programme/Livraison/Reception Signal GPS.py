@@ -20,7 +20,9 @@ ser = serial.Serial('/dev/ttyAMA0', 9600, timeout=0)  # Open the serial port at 
 ser.flush()
 
 
-
+m_lat = 0
+m_long = 0
+m_temp = 0
 
 
 
@@ -70,9 +72,9 @@ class GPS:
         time = GPS.GGA[1]
 
         if GPS.GGA[2] == '':  # latitude. Technically a float
-            lat = -1.0
+            m_lat = -1.0
         else:
-            lat = safefloat(cleanstr(GPS.GGA[2]))
+            m_lat = safefloat(cleanstr(GPS.GGA[2]))
 
         if GPS.GGA[3] == '':  # this should be either N or S
             lat_ns = ""
@@ -80,9 +82,9 @@ class GPS:
             lat_ns = str(GPS.GGA[3])
 
         if GPS.GGA[4] == '':  # longitude. Technically a float
-            long = -1.0
+            m_long = -1.0
         else:
-            long = safefloat(cleanstr(GPS.GGA[4]))
+            m_long = safefloat(cleanstr(GPS.GGA[4]))
 
         if GPS.GGA[5] == '':  # this should be either W or E
             long_ew = ""
@@ -98,7 +100,7 @@ class GPS:
                 # change to str instead of float
                 # 27"1 seems to be a valid value
             alt = str(GPS.GGA[9])
-        return [time, fix, sats, alt, lat, lat_ns, long, long_ew]
+        return [time, fix, sats, alt, m_lat, lat_ns, m_long, long_ew]
 
         # Convert to decimal degrees
     def decimal_degrees(self, raw_degrees):
@@ -120,30 +122,30 @@ if __name__ == "__main__":
         time.sleep(0.01)
         try:
             x = g.read()  # Read from GPS
-            [t, fix, sats, alt, lat, lat_ns, longitude, long_ew] = g.vals()  # Get the individial values
+            [t, fix, sats, alt, m_lat, lat_ns, m_long, long_ew] = g.vals()  # Get the individial values
 
                 # Convert to decimal degrees
-            if lat != -1.0:
-                lat = g.decimal_degrees(safefloat(lat))
+            if m_lat != -1.0:
+                m_lat = g.decimal_degrees(safefloat(m_lat))
                 if lat_ns == "S":
-                    lat = -lat
+                    m_lat = -m_lat
 
-            if longitude != -1.0:
-                longitude = g.decimal_degrees(safefloat(longitude))
+            if m_long != -1.0:
+                m_long = g.decimal_degrees(safefloat(m_long))
                 if long_ew == "W":
-                    longitude = -longitude
+                    m_long = -m_long
 
                 # print ("Time:",t,"Fix status:",fix,"Sats in view:",sats,"Altitude",alt,"Lat:",lat,lat_ns,"Long:",long,long_ew)
             try:
                 print(
                     "Time\t\t: %s\nFix status\t: %d\nSats in view\t: %d\nAltitude\t: %s\nLat\t\t: %f\nLong\t\t: %f") % (
-                    t, fix, sats, alt, lat, longitude)
+                    t, fix, sats, alt, m_lat, m_long)
             except:
                 print(
                     "Time\t\t: %s\nFix status\t: %s\nSats in view\t: %s\nAltitude\t: %s\nLat\t\t: %s\nLong\t\t: %s") % (
-                    t, str(fix), str(sats), str(alt), str(lat), str(longitude))
+                    t, str(fix), str(sats), str(alt), str(m_lat), str(m_long))
 
-            s = str(t) + "," + str(safefloat(lat) / 100) + "," + str(safefloat(longitude) / 100) + "\n"
+            s = str(t) + "," + str(safefloat(m_lat) / 100) + "," + str(safefloat(m_long) / 100) + "\n"
 
             if enable_save_to_file:
                 f.write(s)  # Save to file
@@ -170,13 +172,12 @@ if internet_on() == True:
         password="Motdepasse",  # your password
         host="127.0.0.1",  # your host, usually localhost
         database="proxidej")  # name of the data base
-
-    cur = db.cursor()
-    temp = 3.5
-    id_car = 1
-    sql = "INSERT INTO livraison (temp, posX, posY, id) VALUES (%f, %lf, %lf, %d)"
-    val = (temp, long, lat, id_car)
-    cur.execute(sql, val)
-    db.commit()
-
-    db.close()
+    while True:  # Boucle infini jusqu'a arret du programme
+        cur = db.cursor()
+        m_temp = 3.5
+        id_car = 1
+        sql = "INSERT INTO livraison (temp, posX, posY, id) VALUES (%f, %lf, %lf, %d)"
+        val = (m_temp, m_long, m_lat, id_car)
+        cur.execute(sql, val)
+        db.commit()
+        time.sleep(5)
