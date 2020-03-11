@@ -126,7 +126,7 @@ if __name__ == "__main__":
         f.write("name,latitude,longitude,temperature\n")  # Write the header to the top of the file
     ind = 0
     while True:
-        time.sleep(0.01)
+        time.sleep(1)
         try:
             x = g.read()  # Read from GPS
             [t, fix, sats, alt, m_lat, lat_ns, m_long, long_ew] = g.vals()  # Get the individial values
@@ -186,4 +186,4 @@ if internet_on() == True:
         val = (m_temp, m_long, m_lat, id_car)
         cur.execute(sql, val)
         db.commit()
-        time.sleep(3)
+        time.sleep(5)
