@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hello !{%  endblock%}
+{% block body %}
+    <div>
+        <H1>Login</H1>
+<form action="{{ path('proxidej_login') }}" method="post">
+<input type="text" name="_username" value="" placeholder="Username here...">
+    <input type="password" name="_password">
+    <button type="submit">submit</button>
+</form>
+    </div>
+{% endblock%}
