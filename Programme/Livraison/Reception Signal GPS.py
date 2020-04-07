@@ -6,7 +6,7 @@ import math
 import RPi.GPIO as GPIO
 import struct
 import sys
-import urllib2
+import urllib3
 import mysql.connector
 from pi_sht1x import SHT1x
 # import ir_receiver_check
