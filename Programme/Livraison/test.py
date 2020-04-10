@@ -5,7 +5,7 @@ import RPi.GPIO as GPIO
 import struct
 import sys
 
-ser = serial.Serial{'/dev/ttyAMA0', 9600, timeout = 0)
+ser = serial.Serial('/dev/ttyAMA0', 9600, timeout = 0)
 ser.flush()
 
 class GPS:
@@ -22,39 +22,36 @@ class GPS:
 		try:
 			ind=GPS.inp.index('$GPGGA',5,len(GPS.inp))
 			GPS.inp=GPS.inp[ind:]
-		expect ValueError:
-			print ""
+		except ValueError:
+			print ("")
 		GPS.GGA=GPS.inp.split(",")
-        return [GPS.GGA]
-        
-       def vals(self):
-        time=GPS.GGA[1]
-        lat=GPS.GGA[2]
-        lat_ns=GPS.GGA[3]
-        long=GPS.GGA[4]
-        long_ew=GPS.GGA[5]
-        fix=GPS.GGA[6]
-        sats=GPS.GGA[7]
-        alt=GPS.GGA[9]
-        return [time,fix,sats,alt,lat,lat_ns,long,long_ew]
+		return [GPS.GGA]
+	def vals(self):
+        	time=GPS.GGA[1]
+        	lat=GPS.GGA[2]
+        	lat_ns=GPS.GGA[3]
+        	long=GPS.GGA[4]
+        	long_ew=GPS.GGA[5]
+        	fix=GPS.GGA[6]
+        	sats=GPS.GGA[7]
+        	alt=GPS.GGA[9]
+        	return [time,fix,sats,alt,lat,lat_ns,long,long_ew]
 
-g=GPS() 
-f=open("gps_data.csv",'w')  #Open file to log the data 
+g=GPS()
+f=open("gps_data.csv",'w')  #Open file to log the data
 f.write("name,latitude,longitude\n")
-ind=0 
+ind=0
 while True:
     try:
-        x=g.read()  #Read from GPS         
+        x=g.read()  #Read from GPS
         [t,fix,sats,alt,lat,lat_ns,long,long_ew]=g.vals()   #Get the individial values
-        print "Time:",t,"Fix status:",fix,"Sats in view:",sats,"Altitude",alt,"Lat:",lat,lat_ns,"Long:",long,long_ew
+        print ("Time:",t,"Fix status:",fix,"Sats in view:",sats,"Altitude",alt,"Lat:",lat,lat_ns,"Long:",long,long_ew)
         s=str(t)+","+str(float(lat)/100)+","+str(float(long)/100)+"\n"
         f.write(s)  #Save to file
         time.sleep(2)
     except IndexError:
-        print "Unable to read"
+        print ("Unable to read")
     except KeyboardInterrupt:
         f.close()
-        print "Exiting"
-        sys.exit(0) 
- 
- 
+        print ("Exiting")
+        sys.exit(0)
