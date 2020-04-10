@@ -68,8 +68,7 @@ class GPS:
                 break
             time.sleep(0.1)  # without the cmd program will crash
         try:
-            ind = GPS.inp.index("b'$GPGGA", 5, len(
-                GPS.inp))  # Sometimes multiple GPS data packets come into the stream. Take the data only after the last '$GPGGA' is seen
+            ind = GPS.inp.index("b'$GPGGA", 5, len(GPS.inp))  # Sometimes multiple GPS data packets come into the stream. Take the data only after the last "b'$GPGGA" is seen
             GPS.inp = GPS.inp[ind:]
         except ValueError:
             print("")
@@ -173,14 +172,14 @@ if __name__ == "__main__":
             sys.exit(0)
 
 # TEST CONNECTION
-def internet_on():
-    try:
-        urllib2.urlopen('http://www.google.com', timeout=1)
-        return True
-    except urllib2.URLError as err:
-        return False
+#def internet_on():
+    #try:
+        #urllib2.urlopen('http://www.google.com', timeout=1)
+        #return True
+    #except urllib2.URLError as err:
+        #return False
 
-if internet_on() == True:
+#if internet_on() == True:
     #db = mysql.connector.connect(
      #   user="admin",  # your username
       #  password="Motdepasse",  # your password
@@ -194,4 +193,4 @@ if internet_on() == True:
        # cur.execute(sql, val)
         #db.commit()
         #time.sleep(5)
-    print ('yes')
+        #print ('yes')
